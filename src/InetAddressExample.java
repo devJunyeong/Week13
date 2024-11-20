@@ -9,14 +9,18 @@ public class InetAddressExample {
         System.out.println("Local HostName: " + local.getHostName());
         System.out.println("Local isAnyLocalAddress: " + local.isAnyLocalAddress());
 
-        System.out.println("Local getAddress: " + local.getAddress());
+        byte[] address = local.getAddress();
+        for(int i=0; i<address.length; i++) {
+            System.out.println(address[i] + " ");
+        }
+        System.out.println();
 
-        InetAddress google = InetAddress.getByName("www.naver.com");
-        System.out.println("NAVER IP: " + google);
+        InetAddress google = InetAddress.getByName("www.google.com");
+        System.out.println("Google IP: " + google);
 
-        InetAddress[] addresses = InetAddress.getAllByName("www.naver.com");
+        InetAddress[] addresses = InetAddress.getAllByName("www.google.com");
         for (InetAddress addr : addresses) {
-            System.out.println("NAVER Address: " + addr);
+            System.out.println("Google Address: " + addr);
         }
     }
 }
